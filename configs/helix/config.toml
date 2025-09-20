@@ -1,0 +1,15 @@
+theme = "papercolor-light"
+
+[editor]
+line-number = "relative"
+color-modes = true
+bufferline = "multiple"
+cursorline = true
+cursorcolumn = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.indent-guides]
+render = true
+character = "┊"
