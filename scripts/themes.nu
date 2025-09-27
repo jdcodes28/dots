@@ -5,7 +5,7 @@ def get-gnome-color-scheme [] {
 }
 
 def set-gnome-themes [mode: string] {
-    let helix_config = "./dots/configs/helix/config.toml"
+    let helix_config = $"($env.HOME)/dots/configs/helix/config.toml"
 
     if $mode == "Dark" {
         print "Setting color scheme to prefer-dark"
