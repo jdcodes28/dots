@@ -1,0 +1,8 @@
+configuration {
+  modes: [combi];
+  combi-modes: [window, drun];
+  font: "TX-02 12";
+  show-icons: true;
+}
+
+@theme "gruvbox-light"
