@@ -1,7 +1,7 @@
 configuration {
   modes: [combi];
   combi-modes: [window, drun];
-  font: "TX-02 12";
+  font: "TX-02 11";
   show-icons: true;
 }
 
