@@ -13,3 +13,11 @@ enable = true
 [editor.indent-guides]
 render = true
 character = "┊"
+
+[editor.file-picker]
+hidden = false
+parents = false
+ignore = false
+git-ignore = false
+git-global = false
+git-exclude = false
