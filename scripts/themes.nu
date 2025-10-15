@@ -20,37 +20,56 @@ def file-replace [
 }
 
 def set-gnome-themes [mode: string] {
-    let config_dir = $"($env.HOME)/dots/configs"
-    let helix_config = $"($config_dir)/helix/config.toml"
-    let rofi_config = $"($config_dir)/rofi/config.rasi"
+    let config_dir     = $"($env.HOME)/dots/configs"
+    let helix_config   = $"($config_dir)/helix/config.toml"
+    let rofi_config    = $"($config_dir)/rofi/config.rasi"
+    let clipse_config  = $"($config_dir)/clipse/config.json"
 
-    if $mode == "Dark" {
-        print "Setting color scheme to prefer-dark"
-        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
-        dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita-dark'"
-        dconf write /org/gnome/desktop/interface/icon-theme "'Adwaita-dark'"
-        dconf write /gtk3/extraConfig/gtk-application-prefer-dark-theme "1"
-        hyprctl setcursor catppuccin-latte-light-cursors 24
-        open $helix_config | update theme "papercolor-dark" | save --force $helix_config
-        file-replace $rofi_config "theme" "light" "dark"
-    } else if $mode == "Light" {
-        print "Setting color scheme to prefer-light"
-        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
-        dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
-        dconf write /org/gnome/desktop/interface/icon-theme "'Adwaita'"
-        dconf write /gtk3/extraConfig/gtk-application-prefer-dark-theme "0"
-        hyprctl setcursor catppuccin-mocha-dark-cursors 24
-        open $helix_config | update theme "papercolor-light" | save --force $helix_config
-        file-replace $rofi_config "theme" "dark" "light"
-    } else {
-        print "Invalid mode. Please use 'Light' or 'Dark'."
+    let themes = {
+        "Dark": {
+            color_scheme: "'prefer-dark'",
+            gtk_theme: "'Adwaita-dark'",
+            icon_theme: "'Adwaita-dark'",
+            prefer_dark: "1",
+            cursor: "catppuccin-latte-light-cursors",
+            helix: "papercolor-dark",
+            rofi_from: "light",
+            rofi_to: "dark",
+            clipse: "dark.json"
+        },
+        "Light": {
+            color_scheme: "'prefer-light'",
+            gtk_theme: "'Adwaita'",
+            icon_theme: "'Adwaita'",
+            prefer_dark: "0",
+            cursor: "catppuccin-mocha-dark-cursors",
+            helix: "papercolor-light",
+            rofi_from: "dark",
+            rofi_to: "light",
+            clipse: "light.json"
+        }
     }
+
+    if not ($themes | columns | any { |m| $m == $mode }) {
+        print "Invalid mode. Please use 'Light' or 'Dark'."
+        return
+    }
+
+    let cfg = $themes | get $mode
+
+    print $"Setting color scheme to ($cfg.color_scheme)"
+
+    dconf write /org/gnome/desktop/interface/color-scheme $cfg.color_scheme
+    dconf write /org/gnome/desktop/interface/gtk-theme $cfg.gtk_theme
+    dconf write /org/gnome/desktop/interface/icon-theme $cfg.icon_theme
+    dconf write /gtk3/extraConfig/gtk-application-prefer-dark-theme $cfg.prefer_dark
+    hyprctl setcursor $cfg.cursor 24
+
+    open $helix_config | update theme $cfg.helix | save --force $helix_config
+    file-replace $rofi_config "theme" $cfg.rofi_from $cfg.rofi_to
+    open $clipse_config | update themeFile $cfg.clipse | to json | save --raw --force $clipse_config
 }
 
-let current_gnome_mode = (get-gnome-color-scheme)
-
-if $current_gnome_mode == "'prefer-light'" {
-    set-gnome-themes "Dark"
-} else {
-    set-gnome-themes "Light"
-}
+let current = (get-gnome-color-scheme)
+let next = if $current == "'prefer-light'" { "Dark" } else { "Light" }
+set-gnome-themes $next
