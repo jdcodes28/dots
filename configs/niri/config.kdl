@@ -1,4 +1,32 @@
-include "MACHINE.kdl"
+output "eDP-1" {
+  mode "1920x1080@60"
+  scale 1
+  transform "normal"
+  position x=0 y=0
+}
+
+output "HDMI-A-2" {
+  mode "2560x1440@143.912"
+  scale 1
+  transform "normal"
+  position x=0 y=0
+}
+
+output "DP-1" {
+  focus-at-startup
+  mode "3840x2160@143.851"
+  scale 1
+  transform "normal"
+  position x=2560 y=0
+}
+
+output "DP-2" {
+  mode "2560x1440@164.999"
+  scale 1
+  transform "normal"
+  position x=6400 y=0
+}
+
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
@@ -216,13 +244,13 @@ layout {
         softness 30
 
         // Spread expands the shadow.
-        spread 5
+        spread 8
 
         // Offset moves the shadow relative to the window.
-        offset x=0 y=5
+        offset x=0 y=0
 
         // You can also change the shadow color and opacity.
-        color "#0007"
+        color "#0008"
     }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
@@ -252,8 +280,9 @@ spawn-at-startup "avizo-service"
 spawn-sh-at-startup "find ~/Pictures/Wallpapers -maxdepth 1 -type f -print0 | shuf -z -n 1 | xargs -0 swaybg -o '*' -m stretch -i"
 spawn-sh-at-startup "wlsunset -l 41.7 -L -87.7 -t 3250 -T 6500"
 spawn-sh-at-startup "swaync"
-// spawn-sh-at-startup "nu ~/dots/scripts/cursor.nu"
+spawn-sh-at-startup "nu ~/dots/scripts/cursor.nu"
 spawn-sh-at-startup "clipse -listen"
+spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
@@ -290,6 +319,7 @@ animations {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 window-rule {
+    draw-border-with-background false
     opacity 0.95
 }
 
@@ -310,6 +340,15 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
+}
+
+window-rule {
+    match app-id=r#"brave-.*-Default"#
+    match app-id="vivaldi-stable" title=r#"^Bitwarden"#
+    match app-id=r#"librewolf"# title=r#"^(Extension)"#
+    match at-startup=true
+    open-floating true
+    open-maximized false
 }
 
 window-rule {
