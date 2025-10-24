@@ -277,7 +277,7 @@ spawn-at-startup "avizo-service"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
-spawn-sh-at-startup "find ~/Pictures/Wallpapers -maxdepth 1 -type f -print0 | shuf -z -n 1 | xargs -0 swaybg -o '*' -m stretch -i"
+spawn-sh-at-startup "bash ~/dots/scripts/wallpaper_randomizer.sh"
 spawn-sh-at-startup "wlsunset -l 41.7 -L -87.7 -t 3250 -T 6500"
 spawn-sh-at-startup "swaync"
 spawn-sh-at-startup "nu ~/dots/scripts/cursor.nu"
@@ -346,7 +346,6 @@ window-rule {
     match app-id=r#"brave-.*-Default"#
     match app-id="vivaldi-stable" title=r#"^Bitwarden"#
     match app-id=r#"librewolf"# title=r#"^(Extension)"#
-    match at-startup=true
     open-floating true
     open-maximized false
 }
