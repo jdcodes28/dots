@@ -405,6 +405,7 @@ binds {
     Mod+E hotkey-overlay-title="Run an Application: Dolphin" { spawn "dolphin"; }
     Mod+P hotkey-overlay-title="Run an Application: Hyprpicker" { spawn "hyprpicker" "-a"; }
     Mod+M hotkey-overlay-title="Run an Application: Rofimoji" { spawn "rofimoji" "-a" "copy" "type" "-s" "light"; }
+    Mod+N hotkey-overlay-title="Run an Application: Sway Notification Center" { spawn "swaync-client" "-t" "-sw"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.

@@ -14,7 +14,7 @@ set_random_wallpaper() {
     kill_swaybg
     find "$dir" -maxdepth 1 -type f -print0 | shuf -z -n 1 | xargs -0 -I {} sh -c 'swaybg -i "{}" -m stretch -o "*" &'
     
-    sleep 0.5
+    sleep 0.25
 }
 
 main() {
