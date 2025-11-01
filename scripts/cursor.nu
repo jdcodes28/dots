@@ -1,5 +1,5 @@
 #!/usr/bin/env nu
-use ./utils.nu
+use ./utils.nu *
 
 let config_dir = $"($env.HOME)/dots/configs"
 let current_gnome_mode = (get-gnome-color-scheme)
