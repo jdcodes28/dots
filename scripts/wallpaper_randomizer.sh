@@ -2,7 +2,7 @@
 
 WALLPAPER_DIR=~/Pictures/Wallpapers
 INTERVAL=900
-USED_LIST="~/.cache/used_wallpapers.txt"
+USED_LIST="$HOME/.cache/used_wallpapers.txt"
 WALLPAPER_DIR="${WALLPAPER_DIR/#\~/$HOME}"
 
 kill_swaybg() {
@@ -25,18 +25,20 @@ get_unused_wallpaper() {
     local unused_count=$(echo "$unused" | grep -c '^')
 
     if [ -z "$unused" ] || [ "$unused_count" -eq 0 ]; then
+        echo "All wallpapers used! Resetting list..."
+        > "$USED_LIST"
         unused="$all_wallpapers"
         unused_count="$total_count"
     fi
+
+    echo "$unused" | shuf -n 1
 }
 
 set_random_wallpaper() {
     local dir="$1"
-
     kill_swaybg
-
     local wallpaper=$(get_unused_wallpaper "$dir")
-
+    
     if [ -z "$wallpaper" ]; then
         return 1
     fi
