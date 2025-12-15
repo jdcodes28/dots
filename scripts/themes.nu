@@ -11,8 +11,8 @@ def set-gnome-themes [mode: string] {
     let themes = {
         "Dark": {
             color_scheme: "'prefer-dark'",
-            gtk_theme: "'Adwaita-dark'",
-            icon_theme: "'Adwaita-dark'",
+            gtk_theme: "'Breeze-Dark'",
+            icon_theme: "'Breeze-Dark'",
             prefer_dark: "1",
             cursor_from: "catppuccin-mocha-dark-cursors",
             cursor_to: "catppuccin-latte-light-cursors",
@@ -23,8 +23,8 @@ def set-gnome-themes [mode: string] {
         },
         "Light": {
             color_scheme: "'prefer-light'",
-            gtk_theme: "'Adwaita'",
-            icon_theme: "'Adwaita'",
+            gtk_theme: "'Breeze'",
+            icon_theme: "'Breeze'",
             prefer_dark: "0",
             cursor_from: "catppuccin-latte-light-cursors",
             cursor_to: "catppuccin-mocha-dark-cursors",
@@ -48,7 +48,7 @@ def set-gnome-themes [mode: string] {
     dconf write /org/gnome/desktop/interface/gtk-theme $cfg.gtk_theme
     dconf write /org/gnome/desktop/interface/icon-theme $cfg.icon_theme
     dconf write /gtk3/extraConfig/gtk-application-prefer-dark-theme $cfg.prefer_dark
-    # hyprctl setcursor $cfg.cursor_to 24
+    dconf write /gtk4/extraConfig/gtk-application-prefer-dark-theme $cfg.prefer_dark
     (try { hyprctl setcursor $cfg.cursor_to 24 } catch { })
 
     open $helix_config | update theme $cfg.helix | save --force $helix_config

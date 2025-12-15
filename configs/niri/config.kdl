@@ -387,7 +387,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Alt+V hotkey-overlay-title="Open Clipse" { spawn "ghostty" "--class=com.ghostty.clipse" "-e" "'clipse'"; }
+    Alt+V hotkey-overlay-title="Open Clipse" { spawn-sh "ghostty --class=com.ghostty.clipse -e 'clipse'"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+D hotkey-overlay-title="Run an Application: Rofi" { spawn "rofi" "-show"; }
     Mod+E hotkey-overlay-title="Run an Application: Dolphin" { spawn "dolphin"; }
@@ -661,7 +661,7 @@ environment {
 	XDG_SESSION_TYPE                    "wayland"
 	XDG_SESSION_DESKTOP                 "niri"
 	QT_QPA_PLATFORM                     "wayland;xcb"
-	QT_QPA_PLATFORMTHEME                "gnome"
+	QT_QPA_PLATFORMTHEME                "gtk3"
 	QT_AUTO_SCREEN_SCALE_FACTOR         "1"
 	QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
 	GDK_SCALE                           "1"

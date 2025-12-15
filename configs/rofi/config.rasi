@@ -1,6 +1,6 @@
 configuration {
   modes: [combi];
-  combi-modes: [window, drun];
+  combi-modes: [window, drun, run];
   font: "TX-02 11";
   show-icons: true;
 }
