@@ -1,0 +1,81 @@
+# btop Bluloco Light (Ghostty / truecolor tuned)
+
+# Main background
+theme[main_bg]="#F9F9F9"
+
+# Main text
+theme[main_fg]="#383A42"
+
+# Box titles
+theme[title]="#383A42"
+
+# Highlight color for keys
+theme[hi_fg]="#0098DD"
+
+# Selected row
+theme[selected_bg]="#BBDFFF"
+theme[selected_fg]="#1F2933"
+
+# Inactive / disabled text
+theme[inactive_fg]="#8A8F99"
+
+# Text on graphs
+theme[graph_text]="#70757E"
+
+# Process misc text / mini-graphs
+theme[proc_misc]="#0099E1"
+
+# Box outlines
+theme[cpu_box]="#8C8F98"
+theme[mem_box]="#8C8F98"
+theme[net_box]="#8C8F98"
+theme[proc_box]="#8C8F98"
+
+# Divider lines
+theme[div_line]="#70757E"
+
+# Temperature graph
+theme[temp_start]="#23974A"
+theme[temp_mid]="#C5A332"
+theme[temp_end]="#D52652"
+
+# CPU usage graph
+theme[cpu_start]="#23974A"
+theme[cpu_mid]="#C5A332"
+theme[cpu_end]="#D52652"
+
+# Memory / disk free
+theme[free_start]="#23974A"
+theme[free_mid]="#C5A332"
+theme[free_end]="#D52652"
+
+# Memory / disk cached
+theme[cached_start]="#23974A"
+theme[cached_mid]="#0099E1"
+theme[cached_end]="#823EF0"
+
+# Memory / disk available
+theme[available_start]="#23974A"
+theme[available_mid]="#C5A332"
+theme[available_end]="#DF631C"
+
+# Memory / disk used
+theme[used_start]="#23974A"
+theme[used_mid]="#DF631C"
+theme[used_end]="#D52652"
+
+# Download graph
+theme[download_start]="#275FE4"
+theme[download_mid]="#0099E0"
+theme[download_end]="#823EF0"
+
+# Upload graph
+theme[upload_start]="#DF631C"
+theme[upload_mid]="#CE32C0"
+theme[upload_end]="#D52652"
+
+# Process list gradients
+theme[process_start]="#23974A"
+theme[process_mid]="#C5A332"
+theme[process_end]="#D52652"
+

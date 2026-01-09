@@ -1,0 +1,65 @@
+# helix/themes/pierre_light.toml
+
+"ui.background" = { bg = "#ffffff" }
+"ui.background.separator" = { fg = "#dbdbdd" }
+"ui.window" = { bg = "#f8f8f8" }
+"ui.cursor" = { fg = "#ffffff", bg = "#009fff" }
+"ui.cursor.insert" = { fg = "#ffffff", bg = "#009fff" }
+"ui.cursorline" = { bg = "#f2f2f3" }
+"ui.cursorcolumn" = { bg = "#f2f2f3" }
+
+"ui.selection" = { bg = "#dfebff" } # accent.subtle (light)
+"ui.selection.primary" = { bg = "#dfebff" }
+
+"ui.linenr" = { fg = "#84848A" }
+"ui.linenr.selected" = { fg = "#4A4A4E" }
+
+"ui.statusline" = { fg = "#6C6C71", bg = "#f8f8f8" }
+"ui.statusline.inactive" = { fg = "#8E8E95", bg = "#f8f8f8" }
+"ui.popup" = { fg = "#070707", bg = "#f9f9f9" }
+"ui.help" = { fg = "#070707", bg = "#f9f9f9" }
+
+"ui.menu" = { fg = "#070707", bg = "#f9f9f9" }
+"ui.menu.selected" = { fg = "#ffffff", bg = "#009fff" }
+
+"ui.virtual" = { fg = "#8E8E95" }
+"ui.virtual.indent-guide" = { fg = "#eeeeef" }
+"ui.virtual.whitespace" = { fg = "#dbdbdd" }
+"ui.virtual.ruler" = { bg = "#f2f2f3" }
+
+"ui.text" = { fg = "#070707" }
+"ui.text.focus" = { fg = "#070707" }
+"ui.text.inactive" = { fg = "#8E8E95" }
+
+# Syntax
+"comment" = { fg = "#84848A" }
+"string" = { fg = "#199f43" }
+"constant.numeric" = { fg = "#1ca1c7" }
+"constant" = { fg = "#d5a910" }
+"keyword" = { fg = "#fc2b73" }
+"function" = { fg = "#7b43f8" }
+"type" = { fg = "#c635e4" }
+"variable" = { fg = "#d47628" }
+"variable.parameter" = { fg = "#79797F" }
+"namespace" = { fg = "#009fff" }
+"punctuation" = { fg = "#79797F" }
+"operator" = { fg = "#08c0ef" }
+"tag" = { fg = "#d52c36" }
+"attribute" = { fg = "#16a994" }
+
+# Diagnostics
+"diagnostic.error" = { fg = "#ff2e3f" }
+"diagnostic.warning" = { fg = "#ffca00" }
+"diagnostic.info" = { fg = "#08c0ef" }
+"diagnostic.hint" = { fg = "#00cab1" }
+
+"error" = { fg = "#ff2e3f" }
+"warning" = { fg = "#ffca00" }
+"info" = { fg = "#08c0ef" }
+"hint" = { fg = "#00cab1" }
+
+# Diff
+"diff.plus" = { fg = "#00cab1" }
+"diff.minus" = { fg = "#ff2e3f" }
+"diff.delta" = { fg = "#009fff" }
+

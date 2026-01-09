@@ -1,0 +1,65 @@
+# btop/themes/pierre_dark.theme
+
+# Main
+theme[main_bg]="#070707"
+theme[main_fg]="#fbfbfb"
+theme[title]="#adadb1"
+theme[hi_fg]="#ffffff"
+theme[selected_bg]="#19283c"
+theme[selected_fg]="#fbfbfb"
+theme[inactive_fg]="#79797F"
+
+# Boxes / borders
+theme[box]="#2e2e30"
+theme[box_bg]="#0B0B0C"
+theme[div_line]="#39393c"
+
+# Misc UI
+theme[temp_start]="#00cab1"
+theme[temp_mid]="#ffca00"
+theme[temp_end]="#ff2e3f"
+
+theme[cpu_start]="#00cab1"
+theme[cpu_mid]="#ffca00"
+theme[cpu_end]="#ff2e3f"
+
+theme[free_start]="#00cab1"
+theme[free_mid]="#009fff"
+theme[free_end]="#7b43f8"
+
+theme[cached_start]="#08c0ef"
+theme[cached_mid]="#009fff"
+theme[cached_end]="#7b43f8"
+
+theme[available_start]="#00cab1"
+theme[available_mid]="#009fff"
+theme[available_end]="#7b43f8"
+
+theme[used_start]="#ffca00"
+theme[used_mid]="#ffa359"
+theme[used_end]="#ff2e3f"
+
+# Process list / graphs accents
+theme[proc_misc]="#08c0ef"
+theme[proc_gradient_start]="#00cab1"
+theme[proc_gradient_mid]="#009fff"
+theme[proc_gradient_end]="#ff678d"
+
+# Network
+theme[download_start]="#00cab1"
+theme[download_mid]="#009fff"
+theme[download_end]="#7b43f8"
+theme[upload_start]="#ffd452"
+theme[upload_mid]="#ffa359"
+theme[upload_end]="#ff2e3f"
+
+# Disk
+theme[disk_used_start]="#ffca00"
+theme[disk_used_mid]="#ffa359"
+theme[disk_used_end]="#ff2e3f"
+
+# Battery
+theme[battery_start]="#00cab1"
+theme[battery_mid]="#ffca00"
+theme[battery_end]="#ff2e3f"
+

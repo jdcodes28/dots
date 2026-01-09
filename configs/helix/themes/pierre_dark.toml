@@ -1,0 +1,65 @@
+# helix/themes/pierre_dark.toml
+
+"ui.background" = { bg = "#070707" }
+"ui.background.separator" = { fg = "#2e2e30" }
+"ui.window" = { bg = "#141415" }
+"ui.cursor" = { fg = "#070707", bg = "#009fff" }
+"ui.cursor.insert" = { fg = "#070707", bg = "#009fff" }
+"ui.cursorline" = { bg = "#1F1F21" }
+"ui.cursorcolumn" = { bg = "#1F1F21" }
+
+"ui.selection" = { bg = "#19283c" } # accent.subtle (dark)
+"ui.selection.primary" = { bg = "#19283c" }
+
+"ui.linenr" = { fg = "#84848A" }         # fg3-ish
+"ui.linenr.selected" = { fg = "#dbdbdd" } # fg1-ish
+
+"ui.statusline" = { fg = "#adadb1", bg = "#141415" }
+"ui.statusline.inactive" = { fg = "#79797F", bg = "#141415" }
+"ui.popup" = { fg = "#fbfbfb", bg = "#0B0B0C" }
+"ui.help" = { fg = "#fbfbfb", bg = "#0B0B0C" }
+
+"ui.menu" = { fg = "#fbfbfb", bg = "#0B0B0C" }
+"ui.menu.selected" = { fg = "#070707", bg = "#009fff" }
+
+"ui.virtual" = { fg = "#6C6C71" }
+"ui.virtual.indent-guide" = { fg = "#39393c" }
+"ui.virtual.whitespace" = { fg = "#2e2e30" }
+"ui.virtual.ruler" = { bg = "#1F1F21" }
+
+"ui.text" = { fg = "#fbfbfb" }
+"ui.text.focus" = { fg = "#fbfbfb" }
+"ui.text.inactive" = { fg = "#79797F" }
+
+# Syntax
+"comment" = { fg = "#84848A" }
+"string" = { fg = "#5ecc71" }
+"constant.numeric" = { fg = "#68cdf2" }
+"constant" = { fg = "#ffd452" }
+"keyword" = { fg = "#ff678d" }
+"function" = { fg = "#9d6afb" }
+"type" = { fg = "#d568ea" }
+"variable" = { fg = "#ffa359" }
+"variable.parameter" = { fg = "#adadb1" }
+"namespace" = { fg = "#009fff" }
+"punctuation" = { fg = "#79797F" }
+"operator" = { fg = "#08c0ef" }
+"tag" = { fg = "#ff6762" }
+"attribute" = { fg = "#61d5c0" }
+
+# Diagnostics
+"diagnostic.error" = { fg = "#ff2e3f" }
+"diagnostic.warning" = { fg = "#ffca00" }
+"diagnostic.info" = { fg = "#08c0ef" }
+"diagnostic.hint" = { fg = "#00cab1" }
+
+"error" = { fg = "#ff2e3f" }
+"warning" = { fg = "#ffca00" }
+"info" = { fg = "#08c0ef" }
+"hint" = { fg = "#00cab1" }
+
+# Diff
+"diff.plus" = { fg = "#00cab1" }
+"diff.minus" = { fg = "#ff2e3f" }
+"diff.delta" = { fg = "#009fff" }
+

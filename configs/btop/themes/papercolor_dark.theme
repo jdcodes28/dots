@@ -1,0 +1,64 @@
+# btop PaperColor Dark theme
+# Generated from PaperColor Vim colorscheme (dark variant)
+
+theme[main_bg]="#1c1c1c"
+theme[main_fg]="#d0d0d0"
+
+theme[title]="#d0d0d0"
+theme[hi_fg]="#af005f"
+
+theme[selected_bg]="#303030"
+theme[selected_fg]="#ffaf00"
+
+theme[inactive_fg]="#585858"
+theme[graph_text]="#808080"
+
+theme[proc_misc]="#afd700"
+
+theme[cpu_box]="#5f8787"
+theme[mem_box]="#5f8787"
+theme[net_box]="#5f8787"
+theme[proc_box]="#5f8787"
+theme[div_line]="#5f8787"
+
+# Temperature graph (cool → hot)
+theme[temp_start]="#5faf00"
+theme[temp_mid]="#d7af5f"
+theme[temp_end]="#af005f"
+
+# CPU usage
+theme[cpu_start]="#5faf5f"
+theme[cpu_mid]="#ffaf00"
+theme[cpu_end]="#ff5faf"
+
+# Memory / Disk meters
+theme[free_start]="#af005f"
+theme[free_mid]="#ffaf00"
+theme[free_end]="#5faf5f"
+
+theme[cached_start]="#5fafd7"
+theme[cached_mid]="#00afaf"
+theme[cached_end]="#5faf5f"
+
+theme[available_start]="#af005f"
+theme[available_mid]="#d7af00"
+theme[available_end]="#afd700"
+
+theme[used_start]="#5faf5f"
+theme[used_mid]="#ffaf00"
+theme[used_end]="#af005f"
+
+# Network
+theme[download_start]="#5faf00"
+theme[download_mid]="#87d700"
+theme[download_end]="#afd700"
+
+theme[upload_start]="#af005f"
+theme[upload_mid]="#ffaf00"
+theme[upload_end]="#ff5faf"
+
+# Process gradients
+theme[process_start]="#5faf5f"
+theme[process_mid]="#ffaf00"
+theme[process_end]="#af005f"
+

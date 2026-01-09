@@ -1,0 +1,130 @@
+# Bluloco (dark) — Helix theme
+# Generated from the Bluloco Neovim palette (static UI shades approximated).
+
+"ui.background" = { bg = "bg" }
+"ui.text" = { fg = "fg" }
+
+"ui.cursor" = { fg = "bg", bg = "cursor" }
+"ui.cursor.primary" = { fg = "bg", bg = "cursor" }
+"ui.cursor.match" = { fg = "bg", bg = "punctuation" }
+
+"ui.selection" = { bg = "selection" }
+"ui.selection.primary" = { bg = "selection" }
+
+"ui.cursorline" = { bg = "bg_float" }
+"ui.cursorline.primary" = { bg = "bg_float" }
+
+"ui.linenr" = { fg = "comment" }
+"ui.linenr.selected" = { fg = "fg" }
+
+"ui.statusline" = { fg = "fg", bg = "bg_float" }
+"ui.statusline.inactive" = { fg = "comment", bg = "bg_float" }
+
+"ui.popup" = { fg = "fg", bg = "bg_float" }
+"ui.window" = { fg = "punctuation" }
+
+"ui.menu" = { fg = "fg", bg = "bg_float" }
+"ui.menu.selected" = { fg = "bg", bg = "primary" }
+
+"ui.help" = { fg = "fg", bg = "bg_float" }
+
+"ui.virtual.whitespace" = { fg = "comment" }
+"ui.virtual.ruler" = { fg = "comment" }
+"ui.virtual.indent-guide" = { fg = "comment" }
+"ui.gutter" = { bg = "bg" }
+
+"ui.highlight" = { bg = "search" }
+
+"comment" = { fg = "comment" }
+"keyword" = { fg = "keyword" }
+"keyword.control" = { fg = "keyword" }
+"keyword.operator" = { fg = "punctuation" }
+
+"operator" = { fg = "punctuation" }
+"punctuation" = { fg = "punctuation" }
+"punctuation.delimiter" = { fg = "punctuation" }
+"punctuation.bracket" = { fg = "punctuation" }
+
+"function" = { fg = "method" }
+"function.method" = { fg = "method" }
+"function.builtin" = { fg = "method" }
+
+"type" = { fg = "type" }
+"type.builtin" = { fg = "keyword" }
+"type.enum.variant" = { fg = "constant" }
+
+"constant" = { fg = "constant" }
+"constant.builtin" = { fg = "keyword" }
+"string" = { fg = "string" }
+"string.special" = { fg = "attribute" }
+"number" = { fg = "number" }
+"boolean" = { fg = "keyword" }
+
+"variable" = { fg = "fg" }
+"variable.builtin" = { fg = "keyword" }
+"variable.parameter" = { fg = "parameter" }
+"variable.other.member" = { fg = "property" }
+
+"label" = { fg = "label" }
+"namespace" = { fg = "module" }
+"module" = { fg = "module" }
+
+"tag" = { fg = "tag" }
+"attribute" = { fg = "attribute" }
+"property" = { fg = "property" }
+
+"markup.heading" = { fg = "keyword" }
+"markup.bold" = { fg = "type", modifiers = ["bold"] }
+"markup.italic" = { fg = "parameter", modifiers = ["italic"] }
+"markup.link.url" = { fg = "tag", modifiers = ["underlined"] }
+"markup.link.text" = { fg = "constant" }
+"markup.raw" = { fg = "property" }
+"markup.list" = { fg = "punctuation" }
+"markup.quote" = { fg = "constant" }
+
+"diff.plus" = { bg = "diff_add" }
+"diff.delta" = { bg = "diff_change" }
+"diff.minus" = { bg = "diff_delete" }
+
+"diagnostic.error" = { fg = "error" }
+"diagnostic.warning" = { fg = "warning" }
+"diagnostic.info" = { fg = "info" }
+"diagnostic.hint" = { fg = "hint" }
+
+"diagnostic.unnecessary" = { fg = "comment" }
+"diagnostic.deprecated" = { fg = "comment", modifiers = ["crossed_out"] }
+
+[palette]
+bg = "#282C34"
+bg_float = "#21242D"
+fg = "#ABB2BF"
+cursor = "#FFCC00"
+
+keyword = "#10B1FE"
+comment = "#636D83"
+punctuation = "#7A82DA"
+method = "#3FC56B"
+type = "#FF6480"
+string = "#F9C859"
+number = "#FF78F8"
+constant = "#9F7EFE"
+tag = "#3691FF"
+attribute = "#FF936A"
+property = "#CE9887"
+parameter = "#8BCDEF"
+label = "#50ACAE"
+module = "#FF839B"
+
+primary = "#3691FF"
+selection = "#274670"
+search = "#1A7247"
+
+diff_add = "#105B3D"
+diff_change = "#10415B"
+diff_delete = "#522E34"
+
+error = "#FF2E3F"
+warning = "#DA7A43"
+info = "#3691FF"
+hint = "#7982DA"
+

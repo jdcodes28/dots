@@ -7,38 +7,38 @@ def set-gnome-themes [mode: string] {
     let rofi_config    = $"($config_dir)/rofi/config.rasi"
     let clipse_config  = $"($config_dir)/clipse/config.json"
     let niri_config    = $"($config_dir)/niri/config.kdl"
+    let btop_config = $"($env.HOME)/dots/configs/btop/btop.conf"
 
     let themes = {
         "Dark": {
+            btop_from:    "pierre_light",
+            btop_to:      "pierre_dark",
             color_scheme: "'prefer-dark'",
-            gtk_theme: "'Breeze-Dark'",
-            icon_theme: "'Breeze-Dark'",
-            prefer_dark: "1",
-            cursor_from: "catppuccin-mocha-dark-cursors",
-            cursor_to: "catppuccin-latte-light-cursors",
-            helix: "papercolor-dark",
-            rofi_from: "light",
-            rofi_to: "dark",
-            clipse: "dark.json"
+            gtk_theme:    "'Breeze-Dark'",
+            icon_theme:   "'Breeze-Dark'",
+            prefer_dark:  "1",
+            cursor_from:  "catppuccin-mocha-dark-cursors",
+            cursor_to:    "catppuccin-latte-light-cursors",
+            helix:        "papercolor-dark",
+            rofi_from:    "light",
+            rofi_to:      "dark",
+            clipse:       "dark.json"
         },
         "Light": {
+            btop_from:    "pierre_dark",
+            btop_to:      "pierre_light",
             color_scheme: "'prefer-light'",
-            gtk_theme: "'Breeze'",
-            icon_theme: "'Breeze'",
-            prefer_dark: "0",
-            cursor_from: "catppuccin-latte-light-cursors",
-            cursor_to: "catppuccin-mocha-dark-cursors",
-            helix: "papercolor-light",
-            rofi_from: "dark",
-            rofi_to: "light",
-            clipse: "light.json"
+            gtk_theme:    "'Breeze'",
+            icon_theme:   "'Breeze'",
+            prefer_dark:  "0",
+            cursor_from:  "catppuccin-latte-light-cursors",
+            cursor_to:    "catppuccin-mocha-dark-cursors",
+            helix:        "papercolor-light",
+            rofi_from:    "dark",
+            rofi_to:      "light",
+            clipse:       "light.json"
         }
     }
-
-    # if not ($themes | has $mode) {
-    #     print "Invalid mode. Please use 'Light' or 'Dark'."
-    #     return
-    # }
 
     let cfg = $themes | get $mode
 
@@ -55,6 +55,7 @@ def set-gnome-themes [mode: string] {
     file-replace $rofi_config "theme" $cfg.rofi_from $cfg.rofi_to
     open $clipse_config | update themeFile $cfg.clipse | to json | save --raw --force $clipse_config
     file-replace $niri_config "xcursor-theme" $cfg.cursor_from $cfg.cursor_to
+    file-replace $btop_config "color_theme" $cfg.btop_from $cfg.btop_to
 }
 
 let current = (get-gnome-color-scheme)

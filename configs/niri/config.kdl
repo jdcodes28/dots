@@ -394,6 +394,7 @@ binds {
     Mod+P hotkey-overlay-title="Run an Application: Hyprpicker" { spawn "hyprpicker" "-a"; }
     Mod+M hotkey-overlay-title="Run an Application: Rofimoji" { spawn "rofimoji" "-a" "copy" "type" "-s" "light"; }
     Mod+N hotkey-overlay-title="Run an Application: Sway Notification Center" { spawn "swaync-client" "-t" "-sw"; }
+    Mod+T hotkey-overlay-title="Toggle Dark/Light theme" { spawn "~/dots/scripts/themes.nu"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -501,6 +502,8 @@ binds {
     Mod+Shift+Page_Up   { move-workspace-up; }
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
+    Mod+Alt+Shift+L     { move-workspace-to-monitor-left; }
+    Mod+Alt+Shift+R     { move-workspace-to-monitor-right; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.
