@@ -181,12 +181,12 @@ layout {
 
         width 4
         // active-color "#ffc87f"
-        active-gradient from="#00ffff" to="#ff00ff" angle=45
+        active-gradient from="#00ffffaa" to="#ff00ffaa" angle=45
         // inactive-gradient from="#0000ff" to="#ff0000" angle=45
-        inactive-color "#505050"
+        inactive-color "#505050be"
 
         // Color of the border around windows that request your attention.
-        urgent-color "#9b0000"
+        urgent-color "#9b0000aa"
 
         // Gradients can use a few different interpolation color spaces.
         // For example, this is a pastel rainbow gradient via in="oklch longer hue".
@@ -334,6 +334,8 @@ window-rule {
     match app-id="org.gnome.Calculator"
     match app-id="org.gnome.clocks"
     match app-id="org.gnome.FileRoller"
+    match app-id="thunar" title=r#"^Rename"#
+    match app-id="thunar" title="File Operation Progress"
     open-floating true
     open-maximized false
 }

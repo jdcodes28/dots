@@ -4,11 +4,13 @@ use ./utils.nu *
 let config_dir = $"($env.HOME)/dots/configs"
 let current_gnome_mode = (get-gnome-color-scheme)
 let niri_config = $"($config_dir)/niri/config.kdl"
+let dark = "catppuccin-latte-light-cursors"
+let light = "catppuccin-mocha-dark-cursors"
 
 if $current_gnome_mode == "'prefer-light'" {
-  (try { hyprctl setcursor catppuccin-mocha-dark-cursors 24 } catch { })
-  file-replace $niri_config "xcursor-theme" "catpuccin-latte-light-cursors" "catppuccin-mocha-dark-cursors"
+  (try { hyprctl setcursor $light 24 } catch { })
+  file-replace $niri_config "xcursor-theme" $dark $light
 } else {
-  (try { hyprctl setcursor catppuccin-latte-light-cursors 24 } catch { })
-  file-replace $niri_config "xcursor-theme" "catpuccin-mocha-dark-cursors" "catppuccin-latte-light-cursors"
+  (try { hyprctl setcursor $dark 24 } catch { })
+  file-replace $niri_config "xcursor-theme" $light $dark
 }
