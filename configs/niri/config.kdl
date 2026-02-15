@@ -65,6 +65,7 @@ input {
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
     warp-mouse-to-focus
+    workspace-auto-back-and-forth
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
@@ -96,6 +97,7 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 0.75
         proportion 1.0
 
         // Fixed sets the width in logical pixels exactly.
@@ -108,6 +110,7 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 0.75
         proportion 1.0
     }
 
@@ -180,9 +183,7 @@ layout {
         // off
 
         width 4
-        // active-color "#ffc87f"
         active-gradient from="#00ffffaa" to="#ff00ffaa" angle=45
-        // inactive-gradient from="#0000ff" to="#ff0000" angle=45
         inactive-color "#505050be"
 
         // Color of the border around windows that request your attention.
@@ -252,14 +253,9 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
-spawn-at-startup "avizo-service"
+spawn-at-startup "noctalia-shell"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
-spawn-sh-at-startup "bash ~/dots/scripts/wallpaper_randomizer.sh"
-spawn-sh-at-startup "wlsunset -l 41.7 -L -87.7 -t 3250 -T 6500"
-spawn-sh-at-startup "swaync"
 spawn-sh-at-startup "nu ~/dots/scripts/cursor.nu"
 spawn-sh-at-startup "clipse -listen"
 spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
@@ -314,7 +310,7 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="^wallpaper$"
+    match namespace="^noctalia-overview*"
     place-within-backdrop true
 }
 
@@ -395,7 +391,7 @@ binds {
     Mod+E hotkey-overlay-title="Run an Application: Thunar" { spawn "thunar"; }
     Mod+P hotkey-overlay-title="Run an Application: Hyprpicker" { spawn "hyprpicker" "-a"; }
     Mod+M hotkey-overlay-title="Run an Application: Rofimoji" { spawn-sh "rofimoji --selector-args='-config ~/dots/configs/rofi/rofimoji.rasi' --hidden-descriptions -a copy type -s light"; }
-    Mod+N hotkey-overlay-title="Run an Application: Sway Notification Center" { spawn "swaync-client" "-t" "-sw"; }
+    Mod+N hotkey-overlay-title="Notification History" { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
     Mod+T hotkey-overlay-title="Toggle Dark/Light theme" { spawn "~/dots/scripts/themes.nu"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
