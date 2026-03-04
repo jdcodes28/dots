@@ -1,0 +1,6 @@
+cursor-style = block
+cursor-style-blink = true
+font-family = "ComicCode"
+font-size = 12
+theme = dark:Bluloco Dark,light:Bluloco Light
+

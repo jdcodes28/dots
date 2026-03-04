@@ -72,12 +72,19 @@ input {
     // focus-follows-mouse max-scroll-amount="0%"
 }
 
+blue {
+    passes 3
+    offset 3
+    noise 0.03
+    saturation 4
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 5
+    gaps 7.5
     background-color "transparent"
 
     // When to center a column when changing focus, options are:
@@ -296,7 +303,12 @@ animations {
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 window-rule {
     draw-border-with-background false
-    opacity 0.95
+    opacity 0.92
+
+    background-effect {
+        blur true
+        xray false
+    }
 }
 
 // Work around WezTerm's initial configure bug
@@ -332,8 +344,23 @@ window-rule {
     match app-id="org.gnome.FileRoller"
     match app-id="thunar" title=r#"^Rename"#
     match app-id="thunar" title="File Operation Progress"
+    match app-id="mpv"
     open-floating true
     open-maximized false
+}
+
+window-rule {
+    match is-focused=false
+    opacity 0.75
+
+    shadow {
+        on
+        inactive-color "#7777"
+        spread 0
+        softness 0
+        offset x=0 y=0
+        draw-behind-window true
+    }
 }
 
 window-rule {
@@ -342,12 +369,6 @@ window-rule {
     open-maximized false
     default-column-width { fixed 800; }
     default-window-height { fixed 600; }
-}
-
-window-rule {
-    match title="mpv"
-    open-floating true
-    open-maximized false
 }
 
 // Example: block out two password managers from screen capture.
@@ -393,7 +414,7 @@ binds {
     Mod+M hotkey-overlay-title="Run an Application: Rofimoji" { spawn-sh "rofimoji --selector-args='-config ~/dots/configs/rofi/rofimoji.rasi' --hidden-descriptions -a copy type -s light"; }
     Mod+N hotkey-overlay-title="Notification History" { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
     Mod+T hotkey-overlay-title="Toggle Dark/Light theme" { spawn "~/dots/scripts/themes.nu"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
+    Super+Alt+L hotkey-overlay-title="Noctalia Shell: Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -452,8 +473,8 @@ binds {
     // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
     // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
 
-    Mod+Home { focus-column-first; }
-    Mod+End  { focus-column-last; }
+    Mod+Home      { focus-column-first; }
+    Mod+End       { focus-column-last; }
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
@@ -552,6 +573,7 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
+
     Mod+Ctrl+1 { move-column-to-workspace 1; }
     Mod+Ctrl+2 { move-column-to-workspace 2; }
     Mod+Ctrl+3 { move-column-to-workspace 3; }
@@ -582,10 +604,12 @@ binds {
     Mod+R { switch-preset-column-width; }
     // Cycling through the presets in reverse order is also possible.
     // Mod+R { switch-preset-column-width-back; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
-    Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
+    Mod+Shift+R          { switch-preset-window-height; }
+    Mod+Ctrl+R           { reset-window-height; }
+    Mod+F                { maximize-column; }
+    Mod+Shift+F          { fullscreen-window; }
+    Ctrl+Alt+Shift+F     { maximize-window-to-edges; }
+    Mod+Ctrl+Alt+Shift+F { toggle-windowed-fullscreen; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
@@ -628,9 +652,9 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
+    Print      { screenshot; }
     Ctrl+Print { screenshot-window; }
-    Alt+Print { screenshot-screen; }
+    Alt+Print  { screenshot-screen; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
@@ -643,7 +667,7 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
+    Mod+Shift+E     { quit; }
     Ctrl+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
