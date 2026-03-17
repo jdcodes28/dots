@@ -72,7 +72,7 @@ input {
     // focus-follows-mouse max-scroll-amount="0%"
 }
 
-blue {
+blur {
     passes 3
     offset 3
     noise 0.03
@@ -229,7 +229,7 @@ layout {
         // pixels and match the CSS box-shadow properties.
 
         // Softness controls the shadow blur radius.
-        softness 30
+        softness 22
 
         // Spread expands the shadow.
         spread 8
