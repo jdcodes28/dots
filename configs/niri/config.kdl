@@ -326,6 +326,25 @@ layer-rule {
     place-within-backdrop true
 }
 
+layer-rule {
+    match namespace="rofi"
+    opacity 0.85
+
+    background-effect {
+        blur true
+        xray false
+    }
+
+    shadow {
+        on
+        color "#0008"
+        softness 22
+        spread 8
+        offset x=0 y=0
+        draw-behind-window true
+    }
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -355,7 +374,7 @@ window-rule {
 
     shadow {
         on
-        inactive-color "#7777"
+        inactive-color "#0005"
         spread 0
         softness 0
         offset x=0 y=0
