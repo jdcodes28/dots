@@ -7,7 +7,7 @@ def set-gnome-themes [mode: string] {
     let rofi_config    = $"($config_dir)/rofi/config.rasi"
     let clipse_config  = $"($config_dir)/clipse/config.json"
     let niri_config    = $"($config_dir)/niri/config.kdl"
-    let btop_config = $"($env.HOME)/dots/configs/btop/btop.conf"
+    let btop_config    = $"($env.HOME)/dots/configs/btop/btop.conf"
 
     let themes = {
         "Dark": {

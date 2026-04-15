@@ -76,7 +76,7 @@ blur {
     passes 3
     offset 3
     noise 0.03
-    saturation 4
+    saturation 2
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -305,6 +305,15 @@ window-rule {
     draw-border-with-background false
     opacity 0.92
 
+    popups {
+        opacity 0.9
+
+        background-effect {
+            blur true
+            xray false
+        }
+    }
+
     background-effect {
         blur true
         xray false
@@ -375,8 +384,8 @@ window-rule {
     shadow {
         on
         inactive-color "#0005"
-        spread 0
-        softness 0
+        spread 7
+        softness 11
         offset x=0 y=0
         draw-behind-window true
     }
@@ -433,6 +442,7 @@ binds {
     Mod+M hotkey-overlay-title="Run an Application: Rofimoji" { spawn-sh "rofimoji --selector-args='-config ~/dots/configs/rofi/rofimoji.rasi' --hidden-descriptions -a copy type -s light"; }
     Mod+N hotkey-overlay-title="Notification History" { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
     Mod+T hotkey-overlay-title="Toggle Dark/Light theme" { spawn "~/dots/scripts/themes.nu"; }
+    Mod+Space hotkey-overlay-title="Run an Application: Noctalia Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
     Super+Alt+L hotkey-overlay-title="Noctalia Shell: Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
