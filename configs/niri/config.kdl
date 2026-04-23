@@ -76,7 +76,7 @@ blur {
     passes 3
     offset 3
     noise 0.03
-    saturation 2
+    saturation 3
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -317,6 +317,47 @@ window-rule {
     background-effect {
         blur true
         xray false
+    }
+}
+
+window-rule {
+    match app-id="telegram"
+
+    popups {
+        opacity 1.0
+
+        background-effect {
+            blur false
+        }
+    }
+}
+
+window-rule {
+    match app-id="brave"
+    match app-id="helium"
+    match app-id="chromium"
+    match app-id="thunar"
+
+    popups {
+        geometry-corner-radius 8
+    }
+}
+
+window-rule {
+    match app-id="vivaldi"
+    match app-id="chrome"
+
+    popups {
+        geometry-corner-radius 10
+    }
+}
+
+window-rule {
+    match app-id="org.gnome"
+    match app-id="ghostty"
+
+    popups {
+        geometry-corner-radius 12
     }
 }
 
@@ -705,7 +746,7 @@ binds {
 }
 
 cursor {
-    xcursor-theme "catppuccin-latte-light-cursors"
+    xcursor-theme "volantes_light_cursors"
     xcursor-size 24
 }
 
