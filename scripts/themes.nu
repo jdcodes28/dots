@@ -1,7 +1,7 @@
 #!/usr/bin/env nu
 use ./utils.nu *
 
-def set-gnome-themes [mode: string] {
+def set-themes [mode: string] {
     let config_dir     = $"($env.HOME)/dots/configs"
     let helix_config   = $"($config_dir)/helix/config.toml"
     let rofi_config    = $"($config_dir)/rofi/config.rasi"
@@ -49,7 +49,7 @@ def set-gnome-themes [mode: string] {
     dconf write /org/gnome/desktop/interface/icon-theme $cfg.icon_theme
     dconf write /gtk3/extraConfig/gtk-application-prefer-dark-theme $cfg.prefer_dark
     dconf write /gtk4/extraConfig/gtk-application-prefer-dark-theme $cfg.prefer_dark
-    (try { hyprctl setcursor $cfg.cursor_to 24 } catch { })
+    (try { hyprctl setcursor $cfg.cursor_to 24 } catch {})
 
     open $helix_config | update theme $cfg.helix | save --force $helix_config
     file-replace $rofi_config "theme" $cfg.rofi_from $cfg.rofi_to
@@ -60,4 +60,5 @@ def set-gnome-themes [mode: string] {
 
 let current = (get-gnome-color-scheme)
 let next = if $current == "'prefer-light'" { "Dark" } else { "Light" }
-set-gnome-themes $next
+(try { niri msg action do-screen-transition } catch {})
+set-themes $next

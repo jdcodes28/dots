@@ -190,11 +190,11 @@ layout {
         // off
 
         width 4
-        active-gradient from="#00ffffaa" to="#ff00ffaa" angle=45
-        inactive-color "#505050be"
+        active-gradient from="#0ff9" to="#f0f9" angle=45 in="oklch longer hue"
+        inactive-color "#7777"
 
         // Color of the border around windows that request your attention.
-        urgent-color "#9b0000aa"
+        urgent-color "#900a"
 
         // Gradients can use a few different interpolation color spaces.
         // For example, this is a pastel rainbow gradient via in="oklch longer hue".
@@ -229,16 +229,17 @@ layout {
         // pixels and match the CSS box-shadow properties.
 
         // Softness controls the shadow blur radius.
-        softness 22
+        softness 11
 
         // Spread expands the shadow.
-        spread 8
+        spread 5
 
         // Offset moves the shadow relative to the window.
         offset x=0 y=0
 
         // You can also change the shadow color and opacity.
-        color "#0008"
+        color "#000c"
+        inactive-color "#0008"
     }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
@@ -303,7 +304,7 @@ animations {
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 window-rule {
     draw-border-with-background false
-    opacity 0.92
+    opacity 0.9
 
     popups {
         opacity 0.9
@@ -322,6 +323,7 @@ window-rule {
 
 window-rule {
     match app-id="telegram"
+    match app-id="librewolf"
 
     popups {
         opacity 1.0
@@ -387,7 +389,7 @@ layer-rule {
 
     shadow {
         on
-        color "#0008"
+        color "#000b"
         softness 22
         spread 8
         offset x=0 y=0
@@ -421,15 +423,6 @@ window-rule {
 window-rule {
     match is-focused=false
     opacity 0.75
-
-    shadow {
-        on
-        inactive-color "#0005"
-        spread 7
-        softness 11
-        offset x=0 y=0
-        draw-behind-window true
-    }
 }
 
 window-rule {
@@ -442,14 +435,25 @@ window-rule {
 
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    match app-id="1password"
+    match app-id="Bitwarden"
 
     block-out-from "screen-capture"
 
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
+}
+
+window-rule {
+    match is-window-cast-target=true
+
+    border {
+        active-color "#fa0c"
+        inactive-color "#960c"
+    }
 }
 
 // Example: enable rounded corners for all windows.

@@ -2,5 +2,7 @@ cursor-style = block
 cursor-style-blink = true
 font-family = "MonoLisa Variable"
 font-size = 12
+gtk-single-instance = false
 theme = dark:Bluloco Dark,light:Bluloco Light
+window-inherit-working-directory = false
 
