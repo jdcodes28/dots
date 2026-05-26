@@ -238,7 +238,7 @@ layout {
         offset x=0 y=0
 
         // You can also change the shadow color and opacity.
-        color "#000c"
+        color "#000b"
         inactive-color "#0008"
     }
 
@@ -304,7 +304,7 @@ animations {
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 window-rule {
     draw-border-with-background false
-    opacity 0.9
+    opacity 0.95
 
     popups {
         opacity 0.9
