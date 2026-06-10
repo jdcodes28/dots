@@ -190,7 +190,7 @@ layout {
         // off
 
         width 4
-        active-gradient from="#0ff9" to="#f0f9" angle=45 in="oklch longer hue"
+        active-gradient from="#0ff8" to="#f0f8" angle=45 in="oklch longer hue"
         inactive-color "#7777"
 
         // Color of the border around windows that request your attention.
@@ -304,7 +304,7 @@ animations {
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 window-rule {
     draw-border-with-background false
-    opacity 0.95
+    opacity 0.9
 
     popups {
         opacity 0.9
@@ -421,6 +421,14 @@ window-rule {
 }
 
 window-rule {
+    match title="Task Manager"
+    open-floating true
+    open-maximized false
+    default-column-width { proportion 0.33; }
+    default-window-height { proportion 0.33; }
+}
+
+window-rule {
     match is-focused=false
     opacity 0.75
 }
@@ -458,8 +466,8 @@ window-rule {
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 0
+window-rule {
+    geometry-corner-radius 12
     clip-to-geometry true
 }
 
