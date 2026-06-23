@@ -487,16 +487,16 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Alt+V hotkey-overlay-title="Open Clipse" { spawn-sh "ghostty --class=com.ghostty.clipse -e 'clipse'"; }
-    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
-    Mod+D hotkey-overlay-title="Run an Application: Rofi" { spawn "rofi" "-show"; }
-    Mod+E hotkey-overlay-title="Run an Application: Thunar" { spawn "thunar"; }
-    Mod+P hotkey-overlay-title="Run an Application: Hyprpicker" { spawn "hyprpicker" "-a"; }
-    Mod+M hotkey-overlay-title="Run an Application: Rofimoji" { spawn-sh "rofimoji --selector-args='-config ~/dots/configs/rofi/rofimoji.rasi' --hidden-descriptions -a copy type -s light"; }
-    Mod+N hotkey-overlay-title="Notification History" { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
-    Mod+T hotkey-overlay-title="Toggle Dark/Light theme" { spawn "~/dots/scripts/themes.nu"; }
-    Mod+Space hotkey-overlay-title="Run an Application: Noctalia Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-    Super+Alt+L hotkey-overlay-title="Noctalia Shell: Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+E       hotkey-overlay-title="Run an Application: Thunar"            { spawn    "thunar"; }
+    Mod+Return  hotkey-overlay-title="Open a Terminal: ghostty"              { spawn    "ghostty"; }
+    Mod+D       hotkey-overlay-title="Run an Application: Rofi"              { spawn    "rofi" "-show"; }
+    Mod+P       hotkey-overlay-title="Run an Application: Hyprpicker"        { spawn    "hyprpicker" "-a"; }
+    Mod+T       hotkey-overlay-title="Toggle Dark/Light theme"               { spawn    "~/dots/scripts/themes.nu"; }
+    Mod+Space   hotkey-overlay-title="Noctalia Shell: Launcher"              { spawn-sh "noctalia-shell ipc call launcher      toggle"; }
+    Super+Alt+L hotkey-overlay-title="Noctalia Shell: Session Menu"          { spawn-sh "noctalia-shell ipc call sessionMenu   toggle"; }
+    Mod+N       hotkey-overlay-title="Noctalia Shell: Notification History"  { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
+    Alt+V       hotkey-overlay-title="Open Clipse"                           { spawn-sh "ghostty --class=com.ghostty.clipse -e 'clipse'"; }
+    Mod+M       hotkey-overlay-title="Run an Application: Rofimoji"          { spawn-sh "rofimoji --selector-args='-config ~/dots/configs/rofi/rofimoji.rasi' --hidden-descriptions -a copy type -s light"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -521,7 +521,7 @@ binds {
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "brightnessctl set 5%+"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl set 5%+"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl set 5%-"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
