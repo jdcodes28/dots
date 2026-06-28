@@ -10,7 +10,11 @@ let light = "volantes_cursors"
 if $current_gnome_mode == "'prefer-light'" {
   (try { hyprctl setcursor $light 24 } catch { })
   file-replace $niri_config "xcursor-theme" $dark $light
+  sleep 2sec
+  noctalia-shell ipc call darkMode setLight
 } else {
   (try { hyprctl setcursor $dark 24 } catch { })
   file-replace $niri_config "xcursor-theme" $light $dark
+  sleep 2sec
+  noctalia-shell ipc call darkMode setDark
 }
