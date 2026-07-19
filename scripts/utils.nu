@@ -10,12 +10,18 @@ export def file-replace [
     target:       string,
     replacement:  string
 ] {
-    open --raw $file | lines | each { |line|
-        if ($line | str contains $line_has) {
-            $line | str replace $target $replacement
-        } else {
-            $line
+    let content = (
+        open --raw $file
+        | lines
+        | each { |line|
+            if ($line | str contains $line_has) {
+                $line | str replace $target $replacement
+            } else {
+                $line
+            }
         }
-    } | save --force $file
-}
+        | str join "\n"
+    )
 
+    $"($content)\n" | save --force --raw $file
+}
