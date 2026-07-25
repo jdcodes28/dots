@@ -323,7 +323,7 @@ window-rule {
 
 window-rule {
     match app-id="telegram"
-    match app-id="librewolf"
+    match app-id="firefox"
 
     popups {
         opacity 1.0
