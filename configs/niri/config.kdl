@@ -190,8 +190,8 @@ layout {
         // off
 
         width 4
-        active-gradient from="#0ff8" to="#f0f8" angle=45 in="oklch longer hue"
-        inactive-color "#7777"
+        active-gradient from="#0ff7" to="#f0f7" angle=45 in="oklch longer hue"
+        inactive-gradient from="#7777" to="#fff6" angle=45 in="oklch longer hue"
 
         // Color of the border around windows that request your attention.
         urgent-color "#900a"
@@ -409,7 +409,7 @@ window-rule {
 window-rule {
     match app-id=r#"brave-.*-Default"#
     match app-id="vivaldi-stable" title=r#"^Bitwarden"#
-    match app-id=r#"librewolf"# title=r#"^(Extension)"#
+    match app-id=r#"firefox"# title=r#"^(Extension)"#
     match app-id="org.gnome.Calculator"
     match app-id="org.gnome.clocks"
     match app-id="org.gnome.FileRoller"
