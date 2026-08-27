@@ -261,7 +261,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "noctalia-shell"
+spawn-at-startup "noctalia"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 spawn-sh-at-startup "nu ~/dots/scripts/cursor.nu"
@@ -374,8 +374,26 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="^noctalia-overview*"
+    match namespace="^noctalia-backdrop"
     place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+
+    background-effect {
+        blur false
+        xray false
+    }
+}
+
+layer-rule {
+    match namespace="noctaliw-window-switcher"
+
+    background-effect {
+        blur true
+        xray false
+    }
 }
 
 layer-rule {
@@ -492,9 +510,9 @@ binds {
     Mod+D       hotkey-overlay-title="Run an Application: Rofi"              { spawn    "rofi" "-show"; }
     Mod+P       hotkey-overlay-title="Run an Application: Hyprpicker"        { spawn    "hyprpicker" "-a"; }
     Mod+T       hotkey-overlay-title="Toggle Dark/Light theme"               { spawn    "~/dots/scripts/themes.nu"; }
-    Mod+Space   hotkey-overlay-title="Noctalia Shell: Launcher"              { spawn-sh "noctalia-shell ipc call launcher      toggle"; }
-    Super+Alt+L hotkey-overlay-title="Noctalia Shell: Session Menu"          { spawn-sh "noctalia-shell ipc call sessionMenu   toggle"; }
-    Mod+N       hotkey-overlay-title="Noctalia Shell: Notification History"  { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
+    Mod+Space   hotkey-overlay-title="Noctalia Shell: Launcher"              { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Super+Alt+L hotkey-overlay-title="Noctalia Shell: Session Menu"          { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+N       hotkey-overlay-title="Noctalia Shell: Notification History"  { spawn-sh "noctalia msg panel-toggle notifications"; }
     Alt+V       hotkey-overlay-title="Open Clipse"                           { spawn-sh "ghostty --class=com.ghostty.clipse -e 'clipse'"; }
     Mod+M       hotkey-overlay-title="Run an Application: Rofimoji"          { spawn-sh "rofimoji --selector-args='-config ~/dots/configs/rofi/rofimoji.rasi' --hidden-descriptions -a copy type -s light"; }
 
@@ -506,10 +524,10 @@ binds {
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
     // Using spawn-sh allows to pass multiple arguments together with the command.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "noctalia msg mic-mute"; }
 
     // Example media keys mapping using playerctl.
     // This will work with any MPRIS-enabled media player.
@@ -521,8 +539,8 @@ binds {
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl set 5%+"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl set 5%-"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,

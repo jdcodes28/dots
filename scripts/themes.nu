@@ -23,7 +23,7 @@ def set-themes [mode: string] {
             rofi_from:    "light",
             rofi_to:      "dark",
             clipse:       "dark.json",
-            noctalia_to:  "setDark"
+            noctalia_to:  "dark"
         },
         "Light": {
             btop_from:    "pierre_dark",
@@ -38,7 +38,7 @@ def set-themes [mode: string] {
             rofi_from:    "dark",
             rofi_to:      "light",
             clipse:       "light.json",
-            noctalia_to:  "setLight"
+            noctalia_to:  "light"
         }
     }
 
@@ -58,7 +58,7 @@ def set-themes [mode: string] {
     open $clipse_config | update themeFile $cfg.clipse | to json | save --raw --force $clipse_config
     file-replace $niri_config "xcursor-theme" $cfg.cursor_from $cfg.cursor_to
     file-replace $btop_config "color_theme" $cfg.btop_from $cfg.btop_to
-    noctalia-shell ipc call darkMode $cfg.noctalia_to
+    noctalia msg theme-mode-set $cfg.noctalia_to
 }
 
 let current = (get-gnome-color-scheme)
