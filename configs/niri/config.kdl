@@ -84,7 +84,7 @@ blur {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 7.5
+    gaps 8
     background-color "transparent"
 
     // When to center a column when changing focus, options are:
@@ -106,6 +106,7 @@ layout {
         proportion 0.66667
         proportion 0.75
         proportion 1.0
+        fixed 839
 
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
@@ -259,14 +260,11 @@ layout {
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
-
-// This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "noctalia"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 spawn-sh-at-startup "nu ~/dots/scripts/cursor.nu"
-spawn-sh-at-startup "clipse -listen"
-spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
+spawn-sh-at-startup "/dots/scripts/wallpaper_linker.sh"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
@@ -382,7 +380,7 @@ layer-rule {
     match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
 
     background-effect {
-        blur false
+        blur true
         xray false
     }
 }
@@ -513,7 +511,7 @@ binds {
     Mod+Space   hotkey-overlay-title="Noctalia Shell: Launcher"              { spawn-sh "noctalia msg panel-toggle launcher"; }
     Super+Alt+L hotkey-overlay-title="Noctalia Shell: Session Menu"          { spawn-sh "noctalia msg panel-toggle session"; }
     Mod+N       hotkey-overlay-title="Noctalia Shell: Notification History"  { spawn-sh "noctalia msg panel-toggle notifications"; }
-    Alt+V       hotkey-overlay-title="Open Clipse"                           { spawn-sh "ghostty --class=com.ghostty.clipse -e 'clipse'"; }
+    Alt+V       hotkey-overlay-title="Noctalia Shell: Clipboard"             { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+M       hotkey-overlay-title="Run an Application: Rofimoji"          { spawn-sh "rofimoji --selector-args='-config ~/dots/configs/rofi/rofimoji.rasi' --hidden-descriptions -a copy type -s light"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -751,10 +749,10 @@ binds {
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
-
-    Print      { screenshot; }
-    Ctrl+Print { screenshot-window; }
-    Alt+Print  { screenshot-screen; }
+    Print      { spawn-sh "noctalia msg screenshot-fullscreen all"; }
+    Ctrl+Print { spawn-sh "noctalia msg screenshot-annotate"; }
+    Alt+Print  { spawn-sh "noctalia msg screenshot-fullscreen"; }
+    Mod+Print  { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here

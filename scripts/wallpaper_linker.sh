@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env nix-shell
+# nix-shell -i bash -p ffmpeg
 # Symlinks wallpapers into per-monitor folders based on resolution.
 # Each monitor's folder receives only wallpapers >= its native resolution.
 
