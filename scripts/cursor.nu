@@ -4,8 +4,8 @@ use ./utils.nu *
 let config_dir = $"($env.HOME)/dots/configs"
 let current_gnome_mode = (get-gnome-color-scheme)
 let niri_config = $"($config_dir)/niri/config.kdl"
-let dark = "volantes_light_cursors"
-let light = "volantes_cursors"
+let dark = "Bibata-Modern-Ice"
+let light = "Bibata-Modern-Classic"
 
 if $current_gnome_mode == "'prefer-light'" {
   (try { hyprctl setcursor $light 24 } catch { })

@@ -264,7 +264,7 @@ spawn-at-startup "noctalia"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 spawn-sh-at-startup "nu ~/dots/scripts/cursor.nu"
-spawn-sh-at-startup "/dots/scripts/wallpaper_linker.sh"
+spawn-sh-at-startup "~/dots/scripts/wallpaper_linker.sh"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
@@ -386,7 +386,7 @@ layer-rule {
 }
 
 layer-rule {
-    match namespace="noctaliw-window-switcher"
+    match namespace="noctalia-window-switcher"
 
     background-effect {
         blur true
@@ -774,7 +774,7 @@ binds {
 }
 
 cursor {
-    xcursor-theme "volantes_light_cursors"
+    xcursor-theme "Bibata-Modern-Classic"
     xcursor-size 24
 }
 
